@@ -1,0 +1,13 @@
+#FROM quay.io/jupyter/pytorch-notebook
+#FROM quay.io/jupyter/tensorflow-notebook:cuda-latest
+FROM quay.io/jupyter/pytorch-notebook:cuda12-python-3.11.8
+WORKDIR /home/jovyan
+RUN conda install -c conda-forge -y pandas
+RUN conda install -c conda-forge -y scikit-learn
+RUN conda install -c conda-forge -y nltk
+RUN conda install -c conda-forge -y plotly
+RUN pip install statsforecast
+RUN pip install mlforecast
+RUN pip install neuralforecast
+RUN pip install -U kaleido
+RUN pip install -U yfinance
